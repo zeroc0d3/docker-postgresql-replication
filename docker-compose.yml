@@ -1,0 +1,59 @@
+version: '2'
+
+services:
+
+### PostgreSQL Container (Master) ####################################
+
+    zeroc0d3-master:
+        restart: always
+        build: ./zeroc0d3-master
+        volumes:
+            - zeroc0d3-master:/var/lib/postgresql
+        ports:
+            - "5434:5434"
+        environment:
+            - DEBUG=false
+            - DB_USER=zeroc0d3_user
+            - DB_PASS=zeroc0d3_password
+            - DB_NAME=zeroc0d3_dbname
+            - DB_UNACCENT=false
+            - REPLICATION_MODE=master
+            - REPLICATION_USER=replicator
+            - REPLICATION_PASS=replpassword
+            - REPLICATION_SSLMODE=
+
+### PostgreSQL Container (Slave) ####################################
+
+    zeroc0d3-slave:
+        restart: always
+        build: ./zeroc0d3-slave
+        volumes:
+            - zeroc0d3-slave:/var/lib/postgresql
+        ports:
+            - "5435:5435"
+        links:
+            - zeroc0d3-master:master
+        environment:
+            - DEBUG=false
+            - REPLICATION_MODE=slave
+            - REPLICATION_HOST=master
+            - REPLICATION_USER=replicator
+            - REPLICATION_PASS=replpassword
+
+### pgAdmin Container (Master) #######################################
+
+    pgadmin:
+        build: ./pgadmin
+        ports:
+            - "5051:5051"
+        links:
+            - zeroc0d3-master
+
+### Volumes Setup ###########################################
+volumes:
+    zeroc0d3-master:
+        driver: "local"
+    zeroc0d3-slave:
+        driver: "local"
+    sessions:  ## nothing is connected to this (- ./data/sessions:/sessions)
+        driver: "local"
