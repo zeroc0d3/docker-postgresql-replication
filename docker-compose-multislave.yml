@@ -48,7 +48,7 @@ services:
         volumes:
             - vol-zeroc0d3-slave2:/var/lib/postgresql
         ports:
-            - "5435:5435"
+            - "5436:5436"
         links:
             - zeroc0d3-master:master
         environment:
