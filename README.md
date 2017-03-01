@@ -38,6 +38,13 @@ docker-compose build && docker-compose up
        * Username: zeroc0d3_user
        * Password: zeroc0d3_password
 
+## Multi Slave Replication:
+   * Change the [docker-compose-multislave.yml] (https://github.com/zeroc0d3/docker-postgresql-replication/blob/master/docker-compose-multislave.yml) to [docker-compose.yml] (https://github.com/zeroc0d3/docker-postgresql-replication/blob/master/docker-compose.yml)
+   * Rerun the docker compose
+     ```
+     docker-compose build && docker-compose up --force-recreate
+     ```
+  
 ## Optional:
    * Run kitematic & select the docker master/slave container, click on "EXEC" button, or using:
 	   ```docker exec -it [container_id] bash```
