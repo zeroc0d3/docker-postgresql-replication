@@ -47,7 +47,7 @@ docker-compose build && docker-compose up
   
 ## Optional:
    * Run kitematic & select the docker master/slave container, click on "EXEC" button, or using:
-	   ```docker exec -it [container_id] bash```
+     ```docker exec -it [container_id] bash```
    * Change owner database  
      - Login as postgres:
          ```
@@ -57,10 +57,10 @@ docker-compose build && docker-compose up
          ```
          psql
          ```
-	 - Alter database owner:
-	     ```
-	     ALTER DATABASE zeroc0d3_dbname OWNER TO zeroc0d3_user;
-	     ```
+     - Alter database owner:
+	 ```
+	 ALTER DATABASE zeroc0d3_dbname OWNER TO zeroc0d3_user;
+	 ```
    * Change roles user 
 	 - Alter for SUPERUSER:
 	     ```
@@ -71,6 +71,13 @@ docker-compose build && docker-compose up
 	     ALTER ROLE zeroc0d3_user REPLICATION;
 	     ```
 
+## Check Replication Status:
+   * After entering psql (master container):
+     ```
+     SELECT * FROM pg_stat_replication;
+     ```
+     - You can read all [here] (https://www.enterprisedb.com/blog/monitoring-approach-streaming-replication-hot-standby-postgresql-93)
+     
 ## Common PostgreSQL Command:
    * List of database: ```\l```
    * Connect to database (use database): ```\c [database_name]```
