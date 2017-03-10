@@ -51,10 +51,10 @@ services:
 
 ### Volumes Setup ###########################################
 
-  volumes:
-    zeroc0d3-master:
-      driver: "local"
-    zeroc0d3-slave:
-      driver: "local"
-    sessions:  ## nothing is connected to this (- ./data/sessions:/sessions)
-      driver: "local"
+volumes:
+  zeroc0d3-master:
+    driver: "local"
+  zeroc0d3-slave:
+    driver: "local"
+  sessions:  ## nothing is connected to this (- ./data/sessions:/sessions)
+    driver: "local"
