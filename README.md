@@ -6,10 +6,10 @@ docker-compose build && docker-compose up
 ```
 
 ## Requirements:
-   * [Docker for Linux] (https://docs.docker.com/engine/installation/linux/ubuntu)
-   * [Docker Toolbox for Windows & Mac] (https://www.docker.com/products/docker-toolbox)
-   * [Docker Compose] (https://docs.docker.com/compose/install/) 
-   * [Kitematic] (https://kitematic.com/) 
+   * [Docker for Linux](https://docs.docker.com/engine/installation/linux/ubuntu)
+   * [Docker Toolbox for Windows & Mac](https://www.docker.com/products/docker-toolbox)
+   * [Docker Compose](https://docs.docker.com/compose/install/) 
+   * [Kitematic](https://kitematic.com/) 
 
 ## Configuration:
    * Environment
@@ -39,7 +39,7 @@ docker-compose build && docker-compose up
        * Password: zeroc0d3_password
 
 ## Multi Slave Replication:
-   * Change the [docker-compose-multislave.yml] (https://github.com/zeroc0d3/docker-postgresql-replication/blob/master/docker-compose-multislave.yml) to [docker-compose.yml] (https://github.com/zeroc0d3/docker-postgresql-replication/blob/master/docker-compose.yml)
+   * Change the [docker-compose-multislave.yml](https://github.com/zeroc0d3/docker-postgresql-replication/blob/master/docker-compose-multislave.yml) to [docker-compose.yml](https://github.com/zeroc0d3/docker-postgresql-replication/blob/master/docker-compose.yml)
    * Rerun the docker compose
      ```
      docker-compose build && docker-compose up --force-recreate
@@ -76,7 +76,7 @@ docker-compose build && docker-compose up
      ```
      SELECT * FROM pg_stat_replication;
      ```
-     - You can read all [here] (https://www.enterprisedb.com/blog/monitoring-approach-streaming-replication-hot-standby-postgresql-93)
+     - You can read all [here](https://www.enterprisedb.com/blog/monitoring-approach-streaming-replication-hot-standby-postgresql-93)
      
 ## Common PostgreSQL Command:
    * List of database: ```\l```
